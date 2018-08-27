@@ -1,9 +1,11 @@
+---
 swagger: "2.0"
 x-collection-name: AWS EC2
-x-complete: 1
+x-complete: 0
 info:
-  title: AWS EC2 API
+  title: AWS EC2 API Disable Vpc Classic Link Dns Support
   version: 1.0.0
+  description: Disables ClassicLink DNS support for a VPC.
 schemes:
 - http
 produces:
@@ -205,134 +207,17 @@ paths:
           description: OK
       tags:
       - VPC DNS
-  /?Action=EnableVpcClassicLink:
-    get:
-      summary: Enable Vpc Classic Link
-      description: Enables a VPC for ClassicLink.
-      operationId: enablevpcclassiclink
-      x-api-path-slug: actionenablevpcclassiclink-get
-      parameters:
-      - in: query
-        name: VpcId
-        description: The ID of the VPC
-        type: string
-      responses:
-        200:
-          description: OK
-      tags:
-      - VPC
-  /?Action=EnableVpcClassicLinkDnsSupport:
-    get:
-      summary: Enable Vpc Classic Link Dns Support
-      description: Enables a VPC to support DNS hostname resolution for ClassicLink.
-      operationId: enablevpcclassiclinkdnssupport
-      x-api-path-slug: actionenablevpcclassiclinkdnssupport-get
-      parameters:
-      - in: query
-        name: BgpAsn
-        description: For devices that support BGP, the customer gateways BGP ASN
-        type: string
-      - in: query
-        name: DryRun
-        description: Checks whether you have the required permissions for the action,
-          without actually making the request,             and provides an error response
-        type: string
-      - in: query
-        name: IpAddress
-        description: The Internet-routable IP address for the customer gateways outside
-          interface
-        type: string
-      - in: query
-        name: Type
-        description: The type of VPN connection that this customer gateway supports
-          (ipsec
-        type: string
-      responses:
-        200:
-          description: OK
-      tags:
-      - VPC NS
-  /?Action=ModifyReservedInstances:
-    get:
-      summary: Modify Reserved Instances
-      description: Modifies the Availability Zone, instance count, instance type,
-        or network platform (EC2-Classic or EC2-VPC) of your Standard Reserved Instances.
-      operationId: modifyreservedinstances
-      x-api-path-slug: actionmodifyreservedinstances-get
-      parameters:
-      - in: query
-        name: DryRun
-        description: Checks whether you have the required permissions for the action,
-          without actually making the request,        and provides an error response
-        type: string
-      - in: query
-        name: InstanceCount
-        description: The number of Reserved Instances to purchase
-        type: string
-      - in: query
-        name: LimitPrice
-        description: Specified for Reserved Instance Marketplace offerings to limit
-          the total order and ensure that the Reserved Instances are not purchased
-          at unexpected prices
-        type: string
-      - in: query
-        name: ReservedInstancesOfferingId
-        description: The ID of the Reserved Instance offering to purchase
-        type: string
-      responses:
-        200:
-          description: OK
-      tags:
-      - Reserved Instance
-  /?Action=MoveAddressToVpc:
-    get:
-      summary: Move Address To Vpc
-      description: Moves an Elastic IP address from the EC2-Classic platform to the
-        EC2-VPC platform.
-      operationId: moveaddresstovpc
-      x-api-path-slug: actionmoveaddresstovpc-get
-      parameters:
-      - in: query
-        name: AllocationId
-        description: '[EC2-VPC] The allocation ID'
-        type: string
-      - in: query
-        name: DryRun
-        description: Checks whether you have the required permissions for the action,
-          without actually making the request,        and provides an error response
-        type: string
-      - in: query
-        name: PublicIp
-        description: '[EC2-Classic] The Elastic IP address'
-        type: string
-      responses:
-        200:
-          description: OK
-      tags:
-      - IP Address
-  /?Action=RestoreAddressToClassic:
-    get:
-      summary: Restore Address To Classic
-      description: Restores an Elastic IP address that was previously moved to the
-        EC2-VPC platform back to the EC2-Classic platform.
-      operationId: restoreaddresstoclassic
-      x-api-path-slug: actionrestoreaddresstoclassic-get
-      parameters:
-      - in: query
-        name: Ipv6AddressCount
-        description: The number of IPv6 addresses to assign to the network interface
-        type: string
-      - in: query
-        name: Ipv6Addresses.N
-        description: One or more specific IPv6 addresses to be assigned to the network
-          interface
-        type: string
-      - in: query
-        name: NetworkInterfaceId
-        description: The ID of the network interface
-        type: string
-      responses:
-        200:
-          description: OK
-      tags:
-      - IP ADdress
+x-streamrank:
+  polling_total_time_average: 0
+  polling_size_download_average: 0
+  streaming_total_time_average: 0
+  streaming_size_download_average: 0
+  change_yes: 0
+  change_no: 0
+  time_percentage: 0
+  size_percentage: 0
+  change_percentage: 0
+  last_run: ""
+  days_run: 0
+  minute_run: 0
+---

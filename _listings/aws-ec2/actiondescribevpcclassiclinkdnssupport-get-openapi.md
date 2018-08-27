@@ -3,10 +3,9 @@ swagger: "2.0"
 x-collection-name: AWS EC2
 x-complete: 0
 info:
-  title: AWS EC2 API Describe Moving Addresses
+  title: AWS EC2 API Describe Vpc Classic Link Dns Support
   version: 1.0.0
-  description: Describes your Elastic IP addresses that are being moved to the EC2-VPC
-    platform, or that are being restored to the EC2-Classic platform.
+  description: Describes the ClassicLink DNS support status of one or more VPCs.
 schemes:
 - http
 produces:
@@ -101,6 +100,55 @@ paths:
           description: OK
       tags:
       - IP Address
+  /?Action=DescribeVpcClassicLink:
+    get:
+      summary: Describe Vpc Classic Link
+      description: Describes the ClassicLink status of one or more VPCs.
+      operationId: describevpcclassiclink
+      x-api-path-slug: actiondescribevpcclassiclink-get
+      parameters:
+      - in: query
+        name: MaxResults
+        description: The maximum number of items to return for this request
+        type: string
+      - in: query
+        name: NextToken
+        description: The token for the next set of items to return
+        type: string
+      - in: query
+        name: VpcIds.N
+        description: One or more VPC IDs
+        type: string
+      responses:
+        200:
+          description: OK
+      tags:
+      - VPC
+  /?Action=DescribeVpcClassicLinkDnsSupport:
+    get:
+      summary: Describe Vpc Classic Link Dns Support
+      description: Describes the ClassicLink DNS support status of one or more VPCs.
+      operationId: describevpcclassiclinkdnssupport
+      x-api-path-slug: actiondescribevpcclassiclinkdnssupport-get
+      parameters:
+      - in: query
+        name: DryRun
+        description: Checks whether you have the required permissions for the action,
+          without actually making the request,     and provides an error response
+        type: string
+      - in: query
+        name: InstanceId
+        description: The ID of the instance to unlink from the VPC
+        type: string
+      - in: query
+        name: VpcId
+        description: The ID of the VPC to which the instance is linked
+        type: string
+      responses:
+        200:
+          description: OK
+      tags:
+      - VPC DNS
 x-streamrank:
   polling_total_time_average: 0
   polling_size_download_average: 0
